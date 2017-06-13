@@ -1,0 +1,1202 @@
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (213.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (110.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAutos (20170607003851)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "autos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "marca" varchar, "modelo" varchar, "anio" integer, "precio" float, "fecha_adquisicion" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170607003851"]]
+  [1m[35m (113.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-06-07 00:39:29.771511"], ["updated_at", "2017-06-07 00:39:29.771511"]]
+  [1m[35m (96.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2017-06-06 19:40:28 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb (16.0ms)
+Completed 200 OK in 428ms (Views: 197.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-06 19:40:35 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 5019ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (TypeError: Object doesn't support this property or method):
+    4:     <title>Scaffold</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__341015897_58769208'
+Started POST "/__web_console/repl_sessions/39411acef3fd26e7d2356926c7c80b16/trace" for 127.0.0.1 at 2017-06-06 19:42:43 -0500
+Started GET "/" for 127.0.0.1 at 2017-06-06 19:44:00 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb (16.0ms)
+Completed 200 OK in 376ms (Views: 189.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-06 19:44:06 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 920ms (ActiveRecord: 4.0ms)
+
+
+  
+ActionView::Template::Error (The asset "assets/application/.css" is not present in the asset pipeline.):
+    4:     <title>Scaffold</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'assets/application/', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'assets/application/', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__854694315_43056312'
+Started GET "/" for 127.0.0.1 at 2017-06-06 19:47:32 -0500
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb (16.0ms)
+Completed 200 OK in 368ms (Views: 182.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-06 19:47:38 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (4.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 344ms (Views: 240.1ms | ActiveRecord: 4.0ms)
+
+
+  
+ExecJS::ProgramError (TypeError: Object doesn't support this property or method):
+  
+execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+sprockets (3.7.1) lib/sprockets/environment.rb:30:in `find_asset'
+sprockets (3.7.1) lib/sprockets/server.rb:49:in `call'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-06-06 20:21:56 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb (16.0ms)
+Completed 200 OK in 416ms (Views: 213.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-06 20:22:37 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (4.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 64434ms (ActiveRecord: 4.0ms)
+
+
+  
+ActionView::Template::Error (TypeError: Object doesn't support this property or method):
+     6: 
+     7:     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+     8: 
+     9:     <%= stylesheet_link_tag    "application" %>
+    10:     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    11:     <%= csrf_meta_tags %>
+    12:   </head>
+  
+app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___16997024_57228972'
+Started GET "/" for 127.0.0.1 at 2017-06-06 20:25:19 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb (13.0ms)
+Completed 200 OK in 303ms (Views: 153.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-06 20:25:45 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (1.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 392ms (Views: 310.1ms | ActiveRecord: 3.0ms)
+
+
+  
+ExecJS::ProgramError (TypeError: Object doesn't support this property or method):
+  
+execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+sprockets (3.7.1) lib/sprockets/environment.rb:30:in `find_asset'
+sprockets (3.7.1) lib/sprockets/server.rb:49:in `call'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-06-06 20:32:45 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb (14.0ms)
+Completed 200 OK in 284ms (Views: 147.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-06 20:33:10 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 427ms (Views: 341.0ms | ActiveRecord: 1.0ms)
+
+
+  
+ExecJS::ProgramError (TypeError: Object doesn't support this property or method):
+  
+execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+sprockets (3.7.1) lib/sprockets/environment.rb:30:in `find_asset'
+sprockets (3.7.1) lib/sprockets/server.rb:49:in `call'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/autos/new" for 127.0.0.1 at 2017-06-06 20:33:46 -0500
+Processing by AutosController#new as HTML
+  Rendering autos/new.html.erb within layouts/application
+  Rendered autos/_form.html.erb (308.3ms) [cache miss]
+  Rendered autos/new.html.erb within layouts/application (416.3ms)
+Completed 200 OK in 844ms (Views: 723.8ms | ActiveRecord: 3.0ms)
+
+
+  
+ExecJS::ProgramError (TypeError: Object doesn't support this property or method):
+  
+execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+sprockets (3.7.1) lib/sprockets/environment.rb:30:in `find_asset'
+sprockets (3.7.1) lib/sprockets/server.rb:49:in `call'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/autos" for 127.0.0.1 at 2017-06-06 20:34:36 -0500
+Processing by AutosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9HUwYG4o/L9r5wmiQkZE90SO/CYR0IzUZedhPVK28lZV0YYXYSJj/zmxqQK9feHX3Wc4blj+hVIxLApj1MexGw==", "auto"=>{"marca"=>"Patito", "modelo"=>"V45", "anio"=>"2013", "precio"=>"150000", "fecha_adquisicion(1i)"=>"2017", "fecha_adquisicion(2i)"=>"6", "fecha_adquisicion(3i)"=>"7"}, "commit"=>"Create Auto"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (32.0ms)[0m  [1m[32mINSERT INTO "autos" ("marca", "modelo", "anio", "precio", "fecha_adquisicion", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["marca", "Patito"], ["modelo", "V45"], ["anio", 2013], ["precio", 150000.0], ["fecha_adquisicion", "2017-06-07"], ["created_at", "2017-06-07 01:34:36.879802"], ["updated_at", "2017-06-07 01:34:36.879802"]]
+  [1m[35m (213.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/autos/1
+Completed 302 Found in 282ms (ActiveRecord: 245.0ms)
+
+
+Started GET "/autos/1" for 127.0.0.1 at 2017-06-06 20:34:37 -0500
+Processing by AutosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuto Load (1.0ms)[0m  [1m[34mSELECT  "autos".* FROM "autos" WHERE "autos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering autos/show.html.erb within layouts/application
+  Rendered autos/show.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 474ms (Views: 350.3ms | ActiveRecord: 1.0ms)
+
+
+  
+ExecJS::ProgramError (TypeError: Object doesn't support this property or method):
+  
+execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+sprockets (3.7.1) lib/sprockets/environment.rb:30:in `find_asset'
+sprockets (3.7.1) lib/sprockets/server.rb:49:in `call'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/autos" for 127.0.0.1 at 2017-06-06 20:35:00 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (1.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 792ms (Views: 641.7ms | ActiveRecord: 1.0ms)
+
+
+  
+ExecJS::ProgramError (TypeError: Object doesn't support this property or method):
+  
+execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+sprockets (3.7.1) lib/sprockets/environment.rb:30:in `find_asset'
+sprockets (3.7.1) lib/sprockets/server.rb:49:in `call'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-06-08 17:58:22 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb (16.0ms)
+Completed 200 OK in 472ms (Views: 243.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-08 17:58:29 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (84.0ms)
+Completed 200 OK in 581ms (Views: 456.3ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/quiz/index" for 127.0.0.1 at 2017-06-08 17:59:03 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/quiz/index"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  
+ExecJS::ProgramError (TypeError: Object doesn't support this property or method):
+  
+execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+sprockets (3.7.1) lib/sprockets/environment.rb:30:in `find_asset'
+sprockets (3.7.1) lib/sprockets/server.rb:49:in `call'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/autos/1" for 127.0.0.1 at 2017-06-08 18:00:59 -0500
+Processing by AutosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT  "autos".* FROM "autos" WHERE "autos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering autos/show.html.erb within layouts/application
+  Rendered autos/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 436ms (Views: 331.8ms | ActiveRecord: 0.0ms)
+
+
+  
+ExecJS::ProgramError (TypeError: Object doesn't support this property or method):
+  
+execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+sprockets (3.7.1) lib/sprockets/environment.rb:30:in `find_asset'
+sprockets (3.7.1) lib/sprockets/server.rb:49:in `call'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/autos" for 127.0.0.1 at 2017-06-08 18:01:29 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (1.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 468ms (Views: 382.1ms | ActiveRecord: 1.0ms)
+
+
+  
+ExecJS::ProgramError (TypeError: Object doesn't support this property or method):
+  
+execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+sprockets (3.7.1) lib/sprockets/environment.rb:30:in `find_asset'
+sprockets (3.7.1) lib/sprockets/server.rb:49:in `call'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.1.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:63:in `block (3 levels) in broadcast'
+activesupport (5.1.1) lib/active_support/logger_silence.rb:20:in `silence'
+activesupport (5.1.1) lib/active_support/logger.rb:61:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/autos" for 127.0.0.1 at 2017-06-08 18:02:34 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (1.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 471ms (Views: 382.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-08 18:02:55 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 656ms (Views: 499.3ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/autos/1" for 127.0.0.1 at 2017-06-08 18:03:09 -0500
+Processing by AutosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8pwwHD0w4/7O5g/rWCCyvm+QZltvzL68yA4Jj798cGgIYmliiE9qpiFwtNtOdm4fHkAd3rjIrMh5R7Zg8y8vWw==", "id"=>"1"}
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT  "autos".* FROM "autos" WHERE "autos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (20.0ms)[0m  [1m[31mDELETE FROM "autos" WHERE "autos"."id" = ?[0m  [["id", 1]]
+  [1m[35m (120.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/autos
+Completed 302 Found in 160ms (ActiveRecord: 140.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-08 18:03:09 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 415ms (Views: 330.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/autos/new" for 127.0.0.1 at 2017-06-08 18:03:28 -0500
+Processing by AutosController#new as HTML
+  Rendering autos/new.html.erb within layouts/application
+  Rendered autos/_form.html.erb (132.0ms) [cache miss]
+  Rendered autos/new.html.erb within layouts/application (328.0ms)
+Completed 200 OK in 845ms (Views: 771.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/autos" for 127.0.0.1 at 2017-06-08 18:03:41 -0500
+Processing by AutosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wqtZIWZ/zQzUQQWii3lKoVV+uZxwqrD1b4f7HJK/qVO122CRfwcBtLhWi1+/6L5K73a9dTRryjj/ndmntFgGiA==", "auto"=>{"marca"=>"fgh", "modelo"=>"fghj", "anio"=>"567", "precio"=>"56789", "fecha_adquisicion(1i)"=>"2017", "fecha_adquisicion(2i)"=>"6", "fecha_adquisicion(3i)"=>"8"}, "commit"=>"Create Auto"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (20.0ms)[0m  [1m[32mINSERT INTO "autos" ("marca", "modelo", "anio", "precio", "fecha_adquisicion", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["marca", "fgh"], ["modelo", "fghj"], ["anio", 567], ["precio", 56789.0], ["fecha_adquisicion", "2017-06-08"], ["created_at", "2017-06-08 23:03:41.155299"], ["updated_at", "2017-06-08 23:03:41.155299"]]
+  [1m[35m (124.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/autos/2
+Completed 302 Found in 164ms (ActiveRecord: 144.0ms)
+
+
+Started GET "/autos/2" for 127.0.0.1 at 2017-06-08 18:03:41 -0500
+Processing by AutosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAuto Load (4.0ms)[0m  [1m[34mSELECT  "autos".* FROM "autos" WHERE "autos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering autos/show.html.erb within layouts/application
+  Rendered autos/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 464ms (Views: 375.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-08 18:03:45 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 508ms (Views: 419.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/autos/new" for 127.0.0.1 at 2017-06-08 18:04:20 -0500
+Processing by AutosController#new as HTML
+  Rendering autos/new.html.erb within layouts/application
+  Rendered autos/_form.html.erb (15.3ms) [cache miss]
+  Rendered autos/new.html.erb within layouts/application (102.5ms)
+Completed 200 OK in 519ms (Views: 435.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/autos" for 127.0.0.1 at 2017-06-08 18:04:25 -0500
+Processing by AutosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RUOYi3++eo3W3pxYdAdjWtxyIAS8kPUiKbF3e6qmWpUyM6E7Zsa2NbrJEqVAlpexZnok7fhRj++5q1XAjEH1Tg==", "auto"=>{"marca"=>"gbhjk", "modelo"=>"gbhnj", "anio"=>"567", "precio"=>"5678", "fecha_adquisicion(1i)"=>"2017", "fecha_adquisicion(2i)"=>"6", "fecha_adquisicion(3i)"=>"8"}, "commit"=>"Create Auto"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (40.0ms)[0m  [1m[32mINSERT INTO "autos" ("marca", "modelo", "anio", "precio", "fecha_adquisicion", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["marca", "gbhjk"], ["modelo", "gbhnj"], ["anio", 567], ["precio", 5678.0], ["fecha_adquisicion", "2017-06-08"], ["created_at", "2017-06-08 23:04:26.067250"], ["updated_at", "2017-06-08 23:04:26.067250"]]
+  [1m[35m (140.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/autos/3
+Completed 302 Found in 192ms (ActiveRecord: 180.0ms)
+
+
+Started GET "/autos/3" for 127.0.0.1 at 2017-06-08 18:04:26 -0500
+Processing by AutosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAuto Load (1.0ms)[0m  [1m[34mSELECT  "autos".* FROM "autos" WHERE "autos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering autos/show.html.erb within layouts/application
+  Rendered autos/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 425ms (Views: 332.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-08 18:04:45 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (5.6ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 440ms (Views: 360.4ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/autos/new" for 127.0.0.1 at 2017-06-08 18:04:48 -0500
+Processing by AutosController#new as HTML
+  Rendering autos/new.html.erb within layouts/application
+  Rendered autos/_form.html.erb (16.7ms) [cache miss]
+  Rendered autos/new.html.erb within layouts/application (116.5ms)
+Completed 200 OK in 564ms (Views: 484.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/autos" for 127.0.0.1 at 2017-06-08 18:04:55 -0500
+Processing by AutosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"URh+5eBGOOfrlKEPJjypY9ofSfgF1HURLqnTy6S8YaQmaEdV+T70X4eDL/ISrV2IYBdNEUEVD9y+s/FwglvOfw==", "auto"=>{"marca"=>"fghjk", "modelo"=>"fghj", "anio"=>"23", "precio"=>"4234", "fecha_adquisicion(1i)"=>"2017", "fecha_adquisicion(2i)"=>"6", "fecha_adquisicion(3i)"=>"8"}, "commit"=>"Create Auto"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[32mINSERT INTO "autos" ("marca", "modelo", "anio", "precio", "fecha_adquisicion", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["marca", "fghjk"], ["modelo", "fghj"], ["anio", 23], ["precio", 4234.0], ["fecha_adquisicion", "2017-06-08"], ["created_at", "2017-06-08 23:04:55.754234"], ["updated_at", "2017-06-08 23:04:55.754234"]]
+  [1m[35m (191.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/autos/4
+Completed 302 Found in 207ms (ActiveRecord: 195.5ms)
+
+
+Started GET "/autos/4" for 127.0.0.1 at 2017-06-08 18:04:55 -0500
+Processing by AutosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT  "autos".* FROM "autos" WHERE "autos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering autos/show.html.erb within layouts/application
+  Rendered autos/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 466ms (Views: 344.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-08 18:05:09 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 452ms (Views: 363.0ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/autos/2" for 127.0.0.1 at 2017-06-08 18:06:59 -0500
+Processing by AutosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"cguUcwlaHaEloXlwak68F6nWGJc9kXsnmpOrta5FV1mI9c0NvCWU+co3wkB8GGC22AZjEuqVaVMr2hRa4hYIag==", "id"=>"2"}
+  [1m[36mAuto Load (0.0ms)[0m  [1m[34mSELECT  "autos".* FROM "autos" WHERE "autos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[31mDELETE FROM "autos" WHERE "autos"."id" = ?[0m  [["id", 2]]
+  [1m[35m (148.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/autos
+Completed 302 Found in 156ms (ActiveRecord: 152.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-08 18:06:59 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (1.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 590ms (Views: 500.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/autos/new" for 127.0.0.1 at 2017-06-08 18:07:06 -0500
+Processing by AutosController#new as HTML
+  Rendering autos/new.html.erb within layouts/application
+  Rendered autos/_form.html.erb (16.0ms) [cache miss]
+  Rendered autos/new.html.erb within layouts/application (124.0ms)
+Completed 200 OK in 559ms (Views: 486.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/autos" for 127.0.0.1 at 2017-06-08 18:07:12 -0500
+Processing by AutosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2KrPHCqvcVz7rWR3jmHvZh6UzgXWhzuJWDJn8lh7cluv2vasM9e95Je66oq68BuNpJzK7JJGQUTIKEVJfpzdgA==", "auto"=>{"marca"=>"fghj", "modelo"=>"fgbhnjm", "anio"=>"234", "precio"=>"2345", "fecha_adquisicion(1i)"=>"2017", "fecha_adquisicion(2i)"=>"6", "fecha_adquisicion(3i)"=>"8"}, "commit"=>"Create Auto"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (8.0ms)[0m  [1m[32mINSERT INTO "autos" ("marca", "modelo", "anio", "precio", "fecha_adquisicion", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["marca", "fghj"], ["modelo", "fgbhnjm"], ["anio", 234], ["precio", 2345.0], ["fecha_adquisicion", "2017-06-08"], ["created_at", "2017-06-08 23:07:12.522097"], ["updated_at", "2017-06-08 23:07:12.522097"]]
+  [1m[35m (132.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/autos/5
+Completed 302 Found in 152ms (ActiveRecord: 140.0ms)
+
+
+Started GET "/autos/5" for 127.0.0.1 at 2017-06-08 18:07:12 -0500
+Processing by AutosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAuto Load (4.0ms)[0m  [1m[34mSELECT  "autos".* FROM "autos" WHERE "autos"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering autos/show.html.erb within layouts/application
+  Rendered autos/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 449ms (Views: 361.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/autos" for 127.0.0.1 at 2017-06-08 18:07:17 -0500
+Processing by AutosController#index as HTML
+  Rendering autos/index.html.erb within layouts/application
+  [1m[36mAuto Load (2.0ms)[0m  [1m[34mSELECT "autos".* FROM "autos"[0m
+  Rendered autos/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 446ms (Views: 348.7ms | ActiveRecord: 2.0ms)
+
+
